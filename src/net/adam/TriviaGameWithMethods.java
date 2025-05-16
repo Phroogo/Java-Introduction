@@ -2,7 +2,7 @@ package net.adam;
 
 import java.util.Scanner;
 
-public class TriviaGame {
+public class TriviaGameWithMethods {
 
     public static void main(String[] args) {
 
