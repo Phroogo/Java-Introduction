@@ -11,11 +11,15 @@ public class TriviaGame {
         que[0] = "How many States does the USA have?";
         que[1] = "What is the Capital of the United Kingdom";
         que[2] = "What is the chemical symbol for Iron";
+        que[3] = "How High is Mount Everest? (Answer in km)";
+        que[4] = "What is the Answer to Life, the Universe and Everything?";
 
         String[] ans = new String[3];
         ans[0] = "50";
         ans[1] = "london";
         ans[2] = "fe";
+        ans[3] = "8848";
+        ans[4] = "42";
 
         triviaGame(que, ans, score);
 
@@ -31,14 +35,13 @@ public class TriviaGame {
         System.out.println("");
 
         for(int i = 0; i < questions.length; i++){
-            score = 0;
             int t = i + 1;
             System.out.println(questions[i]);
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             input = input.toLowerCase();
             if(i == questions.length - 1 && input.equals(answers[i])) {
-                score++;
+                score = scoreIncrease(score);
                 System.out.println("That is correct! Your final score is " + score + "/" + t + " points. If you'd like to play again type 'continue'");
                 break;
             } else if(i == questions.length - 1 && !input.equals(answers[i])){
@@ -47,11 +50,11 @@ public class TriviaGame {
             }
 
             if(input.equals(answers[i])) {
-                scoreIncrease(score);
-                System.out.println("That is correct! Your current score is " +  score + "/" + t + ". On to the next question!");
+                score = scoreIncrease(score);
+                System.out.println("That is correct! Your current score is " +  score + "/" + t + " points. On to the next question!");
                 System.out.println("");
             } else{
-                System.out.println("That is incorrect, the answer was " + answers[i] + ". Your current score is " +  score + "/" + t + ". On to the next question!");
+                System.out.println("That is incorrect, the answer was " + answers[i] + ". Your current score is " +  score + "/" + t + " points. On to the next question!");
                 System.out.println("");
             }
         }
